@@ -6,13 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  heureActuelle = 14;
   prises = [
     {
       jour: 'Aujourd\'hui',
-      estPrise: false,
       liste: [
         {
-          heure: '10h',
+          heure: 10,
+          estPrise: false,
           listeMed: [
             {
               quantite: 1,
@@ -25,7 +26,8 @@ export class HomePage {
           ]
         },
         {
-          heure: '17h',
+          heure: 17,
+          estPrise: false,
           listeMed: [
             {
               quantite: 1,
@@ -41,10 +43,10 @@ export class HomePage {
     },
     {
       jour: 'Demain',
-      estPrise: false,
       liste: [
         {
-          heure: '10h',
+          heure: 10,
+          estPrise: false,
           listeMed: [
             {
               quantite: 1,
@@ -57,7 +59,8 @@ export class HomePage {
           ]
         },
         {
-          heure: '13h',
+          heure: 13,
+          estPrise: false,
           listeMed: [
             {
               quantite: 4,
@@ -66,7 +69,8 @@ export class HomePage {
           ]
         },
         {
-          heure: '17h',
+          heure: 17,
+          estPrise: false,
           listeMed: [
             {
               quantite: 1,
