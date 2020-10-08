@@ -15,6 +15,6 @@ import { ProblemePage } from './probleme.page';
     IonicModule,
     ProblemePageRoutingModule
   ],
-  declarations: [ProblemePage]
+  declarations: [ProblemePage],
 })
 export class ProblemePageModule {}
