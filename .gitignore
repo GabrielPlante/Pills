@@ -1,0 +1,4 @@
+.idea/*
+node_modules/*
+e2e/*
+pills/www/*
