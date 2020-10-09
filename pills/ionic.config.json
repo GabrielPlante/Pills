@@ -1,7 +1,0 @@
-{
-  "name": "pills",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
