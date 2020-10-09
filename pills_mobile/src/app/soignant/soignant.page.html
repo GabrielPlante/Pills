@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Soignant</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label align="center">{{ mySoignant.firstname }}  {{ mySoignant.name }}  </ion-label>
+    </ion-item>
+    <ion-item *ngFor="let patientsID of mySoignant.patients">
+      <ion-list>
+        <ion-item><ion-label align="center">{{ patients[patientsID].firstname }}  {{ patients[patientsID].name }} : </ion-label></ion-item>
+          <ion-item *ngFor="let priseOfPatient of patients[patientsID].prises">
+            <ion-list>
+              <ion-label> {{priseOfPatient.date | date: 'dd/MM HH:mm'}} : {{ priseOfPatient.medicament.name }}</ion-label>
+            </ion-list>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+  </ion-list>
+</ion-content>

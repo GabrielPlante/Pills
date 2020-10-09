@@ -1,0 +1,7 @@
+{
+  "name": "pills_mobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
