@@ -1,9 +1,13 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title align="center">Vous êtes un ?</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-img slot="start" style="width: 30px; height: 30px;" src="assets/mocks/pills_logo.png" ></ion-img>
+        <ion-title align="center">Pills</ion-title>
+    </ion-toolbar>
 </ion-header>
-<ion-content>
-    <ion-button expand="block" routerLink="/patient">Un patient</ion-button>
-    <ion-button expand="block" routerLink="/soignant">Un soignant</ion-button>
+<ion-content >
+    <p><ion-title> Vous êtes : </ion-title></p>
+    <ion-list>
+        <ion-item><ion-button routerLink="/patient"> Patient </ion-button></ion-item>
+        <ion-item><ion-button routerLink="/soignant"> Soignant </ion-button></ion-item>
+    </ion-list>
 </ion-content>
