@@ -6,3 +6,18 @@ ion-toolbar{
   padding-left: 0;
   color: #3171e0;
 }
+
+.mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.mat-expansion-panel{
+  background-color: grey;
+}
+
+div{
+  border-radius: 20px;
+  padding-left: 30px;
+  margin-bottom: 10px;
+  border: 1px solid dimgrey;
+}

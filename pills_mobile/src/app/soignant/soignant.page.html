@@ -14,15 +14,44 @@
       <ion-img slot="start" style="width: 100px; height: 60px;" src="assets/images/soignant.jpg" ></ion-img>
       <ion-label align="center">{{ mySoignant.firstname }}  {{ mySoignant.name }}  </ion-label>
     </ion-item></p>
-    <ion-item *ngFor="let patientsID of mySoignant.patients">
-      <ion-list>
-        <ion-item><ion-label align="center">{{ patients[patientsID].firstname }}  {{ patients[patientsID].name }} : </ion-label></ion-item>
-          <ion-item *ngFor="let priseOfPatient of patients[patientsID].prises">
-            <ion-list>
-              <ion-label> {{priseOfPatient.date | date: 'dd/MM HH:mm'}} : {{ priseOfPatient.medicament.name }}</ion-label>
-            </ion-list>
-        </ion-item>
+    <ion-list>
+      <ion-label> Alertes :  </ion-label>
+      <br>
+      <br>
+      <ion-item *ngFor="let alert of alerts ">
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <ion-icon [color]="alert.correction ? 'success' : 'danger'" name="warning"></ion-icon>
+              {{ alert.nameOfPatient }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <ion-label>Date de prise : {{alert.dateOfPrise | date: 'dd/MM HH:mm'}}</ion-label>
+          <br>
+          <ion-label class="ion-text-wrap">Problème : {{ alert.alertMessage }}</ion-label>
+          <br>
+          <ion-label>Alerte envoyée le : {{alert.dateOfAlert | date: 'dd/MM HH:mm'}}</ion-label>
+          <br>
+          <ion-button *ngIf="!alert.correction">
+            <ion-icon name="call"></ion-icon>
+            Contacter
+          </ion-button>
+          <ion-button *ngIf="!alert.correction" (click)="correctAlert(alert)">
+            <ion-icon name="warning"></ion-icon>
+            Problème réglé
+          </ion-button>
+          <ion-label *ngIf="alert.correction"> Problème réglé le : {{ alert.dateOfCorrection | date: 'dd/MM HH:mm' }}</ion-label>
+        </mat-expansion-panel>
+      </ion-item>
       </ion-list>
-    </ion-item>
+    <ion-list>
+      <ion-label> Rendez-vous :  </ion-label>
+      <br>
+      <br>
+      <ion-item *ngFor="let rdv of rendezVous ">
+        <ion-label>{{rdv.dateOfRdv | date:'dd/MM HH:mm'}} : {{ rdv.nameOfPatient }}</ion-label>
+      </ion-item>
+    </ion-list>
   </ion-list>
 </ion-content>
