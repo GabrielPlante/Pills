@@ -4,6 +4,7 @@ import {MEDICAMENTS_MOCKED} from '../../mocks/medicaments.mocks';
 import {ALERTES_MOCKED} from '../../mocks/alertes.mocks';
 import {RENDEZVOUS_MOCKED} from '../../mocks/rendezVous.mocks';
 import {Component} from '@angular/core';
+import { CallNumber } from '@ionic-native/call-number/ngx';
 import {Alerte} from '../../models/alerte';
 
 @Component({
@@ -19,11 +20,17 @@ export class SoignantPage{
   alerts = ALERTES_MOCKED;
   rendezVous = RENDEZVOUS_MOCKED;
 
-  constructor() { }
+  constructor(private callNumber: CallNumber) { }
 
   correctAlert( alertToCorrect: Alerte){
     alertToCorrect.correction = true;
     alertToCorrect.dateOfCorrection = new Date();
+  }
+
+  getCall(){
+    this.callNumber.callNumber('0750403953', true)
+        .then(res => console.log('Launched dialer!', res))
+        .catch(err => console.log('Error launching dialer', err));
   }
 
 }

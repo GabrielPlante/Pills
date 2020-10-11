@@ -33,7 +33,7 @@
           <br>
           <ion-label>Alerte envoyée le : {{alert.dateOfAlert | date: 'dd/MM HH:mm'}}</ion-label>
           <br>
-          <ion-button *ngIf="!alert.correction">
+          <ion-button *ngIf="!alert.correction" (click)="getCall()">
             <ion-icon name="call"></ion-icon>
             Contacter
           </ion-button>
