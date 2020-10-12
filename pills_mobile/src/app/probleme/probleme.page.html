@@ -10,7 +10,14 @@
       <ion-label align="center">Reportez le problème : </ion-label>
     </ion-item>
     <ion-item>
-      <ion-input clearInput placeholder="Entrer votre problème"> {{ toPrint }}</ion-input>
+      <ion-input *ngIf="!proposal" clearInput placeholder="Entrer votre problème"> {{ toPrint }}</ion-input>
+      <ion-input *ngIf="proposal" (click)="proposal=false">{{ proposalString }}</ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label (click)="setProposal('J\'ai oublié mon médicament')"> J'ai oublié mon médicament. </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label (click)="setProposal('J\'ai perdu mon médicament')"> J'ai perdu mon médicament. </ion-label>
     </ion-item>
       <ion-button shape="round" color="white" size="large" (click)="setVocalRecognition()" >
         <ion-icon name="mic" color="dark" ></ion-icon>

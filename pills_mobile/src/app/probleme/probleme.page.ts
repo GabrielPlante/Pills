@@ -11,10 +11,18 @@ export class ProblemePage {
   matches: string[];
   toPrint: string;
   isRecording = false;
+  proposal = false;
+  proposalString: string;
 
   constructor(private alertController: AlertController, private speechRecognition: SpeechRecognition, private cd: ChangeDetectorRef) {}
 
+  setProposal(myProposal: string){
+    this.proposal = true;
+    this.proposalString = myProposal;
+  }
+
   setVocalRecognition() {
+    this.proposal = false;
     this.speechRecognition.hasPermission()
         .then((hasPermission: boolean) => {
           if (!hasPermission) {
