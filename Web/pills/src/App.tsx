@@ -26,10 +26,7 @@ function App() {
         new rdv('18h05','20h45','david')
     ]
 
-    const rdvsViews = rdvs.map((myRdv:rdv) =>
-        <RdvDetails debut={myRdv.debut} fin={myRdv.fin} patient={myRdv.patient}></RdvDetails>
-    );
-
+    const detailsRdv = <RdvDetails rdvs={rdvs}></RdvDetails>
 
     const listItems = items.map((item) =>
         <Rappel text = {item}> </Rappel>
@@ -38,7 +35,7 @@ function App() {
     return (
     <div className="App">
         <ul>{listItems}</ul>
-        <ul>{rdvsViews}</ul>
+        <ul>{detailsRdv}</ul>
     </div>
 
 );
