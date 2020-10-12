@@ -1,6 +1,8 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
 import { AlertController } from '@ionic/angular';
+import {Alerte} from '../../models/alerte';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 @Component({
   selector: 'app-probleme',
@@ -13,8 +15,10 @@ export class ProblemePage {
   isRecording = false;
   proposal = false;
   proposalString: string;
+  myAlert: Alerte;
 
-  constructor(private alertController: AlertController, private speechRecognition: SpeechRecognition, private cd: ChangeDetectorRef) {}
+  constructor( private alertController: AlertController, private speechRecognition: SpeechRecognition, private cd: ChangeDetectorRef,
+               private localNotifications: LocalNotifications ) {}
 
   setProposal(myProposal: string){
     this.proposal = true;
@@ -47,6 +51,16 @@ export class ProblemePage {
       header: 'Envoyé !',
       message: 'votre message a bien été envoyé à votre traitant',
       buttons: ['Ok']
+    });
+
+    this.localNotifications.schedule({
+      title: 'Alerte de ' + 'Robert Pattinson ',
+      text: this.proposal ? this.proposalString : this.toPrint,
+      trigger: {at: new Date(new Date().getTime() + 1600)},
+      led: 'FF0000',
+      smallIcon: 'res://ic_stat_notify.png',
+      icon: 'res://icon.png',
+      sound: null
     });
 
     await alert.present();

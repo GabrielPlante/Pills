@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { CallNumber } from '@ionic-native/call-number/ngx';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { CallNumber } from '@ionic-native/call-number/ngx';
     SplashScreen,
     SpeechRecognition,
     CallNumber,
+    LocalNotifications,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
