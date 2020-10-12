@@ -1,4 +1,16 @@
 ion-toolbar{
   padding-left: 15px;
 }
+.small{
+  border-bottom: none;
+  border-top: none;
+}
 
+.pretty-list{
+  background-color: gray;
+  padding: 5px;
+  border-radius: 5px;
+  border-top: none;
+  border-bottom: none;
+  margin-bottom: -5px;
+}

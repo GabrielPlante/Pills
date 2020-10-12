@@ -50,7 +50,7 @@
       <br>
       <br>
       <ion-item *ngFor="let rdv of rendezVous ">
-        <ion-label>{{rdv.dateOfRdv | date:'dd/MM HH:mm'}} : {{ rdv.nameOfPatient }}</ion-label>
+        <ion-label class="pretty-list">{{rdv.dateOfRdv | date:'dd/MM HH:mm'}} : {{ rdv.nameOfPatient }}</ion-label>
       </ion-item>
     </ion-list>
   </ion-list>
