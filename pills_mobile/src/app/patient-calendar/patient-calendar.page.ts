@@ -1,17 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {PATIENTS_MOCKED} from '../../mocks/patients.mocks';
 
 @Component({
-  selector: 'app-patient',
-  templateUrl: './patient.page.html',
-  styleUrls: ['./patient.page.scss'],
+  selector: 'app-patient-calendar',
+  templateUrl: './patient-calendar.page.html',
+  styleUrls: ['./patient-calendar.page.scss'],
 })
-export class PatientPage implements OnInit {
-  myPatient = PATIENTS_MOCKED[0];
-  weekdays = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
-  heureActuelle = 14;
-  currentDate = new Date();
-  today = this.weekdays[this.currentDate.getDay()];
+export class PatientCalendarPage implements OnInit {
   prises = [
     {
       jour: 'Aujourd\'hui',

@@ -22,7 +22,15 @@ const routes: Routes = [
   {
     path: 'probleme',
     loadChildren: () => import('./probleme/probleme.module').then( m => m.ProblemePageModule)
+  },  {
+    path: 'patient-calendar',
+    loadChildren: () => import('./patient-calendar/patient-calendar.module').then( m => m.PatientCalendarPageModule)
   },
+  {
+    path: 'soignant-calendar',
+    loadChildren: () => import('./soignant-calendar/soignant-calendar.module').then( m => m.SoignantCalendarPageModule)
+  },
+
 ];
 
 @NgModule({

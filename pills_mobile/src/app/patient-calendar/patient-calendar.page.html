@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-img slot="start" style="width: 30px; height: 30px;" src="assets/mocks/pills_logo.png" ></ion-img>
+    <ion-title align="center">Pills</ion-title>
+    <ion-button slot="end" color="white" size="medium" routerLink="/home" >
+      <ion-icon name="power" color="dark" ></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-row>
+      <ion-col *ngFor="let priseJour of prises">
+          <!--On affiche les jours-->
+          <ion-item><ion-label class="pretty-list" align="center" style="font-weight: bold;font-size: large">{{priseJour.jour}} :</ion-label></ion-item>
+          <!--Pour toutes les prises de medicament du jour-->
+          <ion-list *ngFor="let prise of priseJour.liste" [disabled]="prise.estPrise">
+              <!--On affiche l'heure et la liste des medicaments a prendre-->
+              <ion-item><ion-label class="pretty-list" style="flex:none">{{prise.heure}}h:</ion-label></ion-item>
+              <ion-list *ngFor="let med of prise.listeMed">{{med.quantite}} {{med.nom}}</ion-list>
+              <!--Si la prise s'effectue aujourd'hui et qu'on a passe l'heure, on met le bouton pour valider la prise et le bouton d'erreur-->
+              <ion-button *ngIf="priseJour.jour == 'Aujourd\'hui' && prise.heure <= heureActuelle" (click)="prise.estPrise = true" [disabled]="prise.estPrise">Valider</ion-button>
+              <ion-button *ngIf="priseJour.jour == 'Aujourd\'hui' && prise.heure <= heureActuelle" (click)="prise.estPrise = true" routerLink="/probleme" [disabled]="prise.estPrise">Problème</ion-button>
+          </ion-list>
+      </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
