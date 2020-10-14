@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import "./rdvDetails_style.css"
-import ts from "typescript/lib/tsserverlibrary";
 
 class rdv{
     debut:String;
