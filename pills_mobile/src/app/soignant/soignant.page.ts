@@ -6,6 +6,7 @@ import {RENDEZVOUS_MOCKED} from '../../mocks/rendezVous.mocks';
 import {Component} from '@angular/core';
 import { CallNumber } from '@ionic-native/call-number/ngx';
 import {Alerte} from '../../models/alerte';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 @Component({
   selector: 'app-soignant',
@@ -20,7 +21,12 @@ export class SoignantPage{
   alerts = ALERTES_MOCKED;
   rendezVous = RENDEZVOUS_MOCKED;
 
-  constructor(private callNumber: CallNumber) { }
+  paysage = false;
+  constructor(private callNumber: CallNumber, private screenOrientation: ScreenOrientation) {
+    if (this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.LANDSCAPE){
+      this.paysage = true;
+    }
+  }
 
   correctAlert( alertToCorrect: Alerte){
     alertToCorrect.correction = true;

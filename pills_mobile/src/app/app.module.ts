@@ -12,6 +12,8 @@ import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { CallNumber } from '@ionic-native/call-number/ngx';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+
 
 
 @NgModule({
@@ -24,6 +26,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
     SpeechRecognition,
     CallNumber,
     LocalNotifications,
+      ScreenOrientation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

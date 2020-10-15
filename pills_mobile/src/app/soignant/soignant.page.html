@@ -8,7 +8,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="!paysage">
   <ion-list>
     <p><ion-item>
       <ion-img slot="start" style="width: 100px; height: 60px;" src="assets/images/soignant.jpg" ></ion-img>
@@ -54,4 +54,14 @@
       </ion-item>
     </ion-list>
   </ion-list>
+</ion-content>
+<ion-content *ngIf="paysage">
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let rdv of rendezVous">
+        <ion-label class="pretty-list">{{rdv.dateOfRdv | date:'dd/MM HH:mm'}} : {{ rdv.nameOfPatient }}</ion-label>
+        <ion-list *ngFor="let prise of rdv.prises">{{prise.date | date:'dd/MM HH:mm'}} : {{prise.medicament.name}}</ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
