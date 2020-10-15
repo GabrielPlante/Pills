@@ -24,6 +24,7 @@
     "@angular/router": "~10.0.0",
     "@capacitor/android": "^2.4.2",
     "@capacitor/core": "2.4.2",
+    "@ionic-native/barcode-scanner": "^5.28.0",
     "@ionic-native/call-number": "^5.28.0",
     "@ionic-native/core": "^5.0.0",
     "@ionic-native/local-notifications": "^5.28.0",
@@ -40,6 +41,7 @@
     "cordova-plugin-speechrecognition": "^1.2.0",
     "es6-promise-plugin": "^4.2.2",
     "jetifier": "^1.6.6",
+    "phonegap-plugin-barcodescanner": "^8.1.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

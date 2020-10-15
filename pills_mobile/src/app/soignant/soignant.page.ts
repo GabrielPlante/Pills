@@ -7,6 +7,7 @@ import {Component} from '@angular/core';
 import { CallNumber } from '@ionic-native/call-number/ngx';
 import {Alerte} from '../../models/alerte';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-soignant',
@@ -20,9 +21,12 @@ export class SoignantPage{
   medicaments = MEDICAMENTS_MOCKED;
   alerts = ALERTES_MOCKED;
   rendezVous = RENDEZVOUS_MOCKED;
+  currentDate = new Date();
+  prescription: string;
 
   paysage = false;
-  constructor(private callNumber: CallNumber, private screenOrientation: ScreenOrientation) {
+  constructor(private callNumber: CallNumber, private screenOrientation: ScreenOrientation,
+              private route: ActivatedRoute, private router: Router) {
     if (this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.LANDSCAPE_PRIMARY
         || this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.LANDSCAPE
         || this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.LANDSCAPE_SECONDARY){
@@ -40,6 +44,12 @@ export class SoignantPage{
           }
         }
     );
+    this.route.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.prescription = this.router.getCurrentNavigation().extras.state.conclusion;
+      }
+    });
+
   }
 
   correctAlert( alertToCorrect: Alerte){
@@ -52,5 +62,7 @@ export class SoignantPage{
         .then(res => console.log('Launched dialer!', res))
         .catch(err => console.log('Error launching dialer', err));
   }
+
+
 
 }

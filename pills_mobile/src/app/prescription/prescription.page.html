@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="start" color="white" style="color: #0d0d0d" size="medium" routerLink="/soignant" >
+      <ion-icon name="arrow-back" color="dark" ></ion-icon>
+        Retour
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngIf="scanData" style="padding-top: 20px">
+    <ion-img src="{{medicamentImagePath}}" slot="start" style="width: 120px;height: 80px;"></ion-img>
+    <ion-label> {{medicamentName}} </ion-label>
+  </ion-item>
+  <ion-item *ngIf="!scanData">
+    <ion-img src='assets/mocks/pills_logo.png' slot="start" style="width: 100px;height: 60px;"></ion-img>
+    <ion-input clearInput placeholder="Entrer un médicament" [(ngModel)]="medicamentName" > </ion-input>
+  </ion-item>
+  <ion-item *ngIf="scanData" class="picto" style="padding-top: 20px">
+    <ion-img style="width: 120px;height: 80px;" src='assets/images/pictogramme_voiture_3.png' slot="start"></ion-img>
+    <ion-label class="ion-text-wrap"> Ne pas conduire après la prise de ce médicament ! </ion-label>
+  </ion-item>
+  <ion-item *ngIf="scanData" class="picto" style="padding-top: 20px">
+    <ion-img style="width: 120px;height: 80px;" src='assets/images/pictogramme_interdit_grossesse.png' slot="start"></ion-img>
+    <ion-label class="ion-text-wrap"> Ne pas prendre ce médicament en cas de grossesse ! </ion-label>
+  </ion-item>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>
+        Fréquence de prise :
+      </ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label> Fréquence </ion-label>
+      <ion-select multiple="false" cancelText="Retour" okText="Valider" [(ngModel)]="frequency">
+        <ion-select-option value="par jour">Par jour</ion-select-option>
+        <ion-select-option value="par semaine">Par semaine</ion-select-option>
+        <ion-select-option value="par mois">Par mois</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label> Répétitions </ion-label>
+      <ion-select multiple="false" [(ngModel)]="repetition" >
+        <ion-select-option value="1"> 1 </ion-select-option>
+        <ion-select-option value="2"> 2 </ion-select-option>
+        <ion-select-option value="3"> 3 </ion-select-option>
+        <ion-select-option value="4"> 4 </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item *ngIf="frequency=='par jour' && repetition">
+      <ion-label> Choisir les heures de prise : </ion-label>
+      <ion-item *ngFor="let item of arrayOne(repetition)" >
+        <ion-input placeholder="Choisir heure"> </ion-input>
+      </ion-item>
+    </ion-item>
+
+    <div class="container">
+      <ion-button *ngIf="scanData==null" (click)="scan()"> Scanner </ion-button>
+      <ion-button *ngIf="scanData!=null" (click)="scan()"> Rescanner</ion-button>
+      <ion-button (click)="validPrescription()"
+                  [disabled]="medicamentName==null || medicamentName.length==0 ||
+                  frequency==null || repetition==null"> Valider
+      </ion-button>
+    </div>
+  </ion-list>
+</ion-content>

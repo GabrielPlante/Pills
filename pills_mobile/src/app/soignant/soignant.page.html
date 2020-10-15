@@ -46,11 +46,20 @@
       </ion-item>
       </ion-list>
     <ion-list>
-      <ion-label> Rendez-vous :  </ion-label>
+      <ion-label> Prochain rendez-vous :  </ion-label>
       <br>
       <br>
       <ion-item *ngFor="let rdv of rendezVous ">
-        <ion-label class="pretty-list">{{rdv.dateOfRdv | date:'dd/MM HH:mm'}} : {{ rdv.nameOfPatient }}</ion-label>
+        <ion-list>
+          <ion-label class="pretty-list">{{rdv.dateOfRdv | date:'dd/MM HH:mm'}} : {{ rdv.nameOfPatient }}</ion-label>
+          <ion-item *ngIf="rdv.dateOfRdv.getDate() == currentDate.getDate() && rdv.dateOfRdv.getMonth() == currentDate.getMonth() && prescription==null">
+            <ion-button routerLink="/prescription"> Préscrire un médicament </ion-button>
+          </ion-item>
+          <ion-item *ngIf="rdv.dateOfRdv.getDate() == currentDate.getDate() && rdv.dateOfRdv.getMonth() == currentDate.getMonth() && prescription!=null" style="color: green">
+            <ion-icon slot="start" name="checkmark" color="sucess"> </ion-icon>
+            {{prescription}}
+          </ion-item>
+        </ion-list>
       </ion-item>
     </ion-list>
   </ion-list>

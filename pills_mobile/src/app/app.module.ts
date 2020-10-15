@@ -15,6 +15,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +27,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
     SpeechRecognition,
     CallNumber,
     LocalNotifications,
+    BarcodeScanner,
       ScreenOrientation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
