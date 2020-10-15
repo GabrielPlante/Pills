@@ -26,6 +26,13 @@ export class SoignantPage{
     if (this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.LANDSCAPE_PRIMARY){
       this.paysage = true;
     }
+    this.screenOrientation.onChange().subscribe(
+        () => {
+          if (this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.LANDSCAPE_PRIMARY){
+            this.paysage = true;
+          }
+        }
+    );
   }
 
   correctAlert( alertToCorrect: Alerte){
