@@ -23,12 +23,16 @@ export class SoignantPage{
 
   paysage = false;
   constructor(private callNumber: CallNumber, private screenOrientation: ScreenOrientation) {
-    if (this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.LANDSCAPE_PRIMARY){
+    if (this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.LANDSCAPE_PRIMARY
+        || this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.LANDSCAPE
+        || this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.LANDSCAPE_SECONDARY){
       this.paysage = true;
     }
     this.screenOrientation.onChange().subscribe(
         () => {
-          if (this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.LANDSCAPE_PRIMARY){
+          if (this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.LANDSCAPE_PRIMARY
+              || this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.LANDSCAPE
+              || this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.LANDSCAPE_SECONDARY){
             this.paysage = true;
           }
           else {

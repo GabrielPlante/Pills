@@ -159,12 +159,16 @@ export class PatientPage implements OnInit {
   ];
   paysage = false;
   constructor(private screenOrientation: ScreenOrientation) {
-      if (this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.LANDSCAPE_PRIMARY){
+      if (this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.LANDSCAPE_PRIMARY
+      || this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.LANDSCAPE
+      || this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.LANDSCAPE_SECONDARY){
         this.paysage = true;
       }
     this.screenOrientation.onChange().subscribe(
         () => {
-          if (this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.LANDSCAPE_PRIMARY){
+          if (this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.LANDSCAPE_PRIMARY
+              || this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.LANDSCAPE
+              || this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.LANDSCAPE_SECONDARY){
             this.paysage = true;
           }
           else {
