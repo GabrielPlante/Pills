@@ -167,6 +167,9 @@ export class PatientPage implements OnInit {
           if (this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.LANDSCAPE_PRIMARY){
             this.paysage = true;
           }
+          else {
+            this.paysage = false;
+          }
         }
     );
   }
