@@ -159,10 +159,11 @@ export class PatientPage implements OnInit {
   ];
   paysage = false;
   constructor(private screenOrientation: ScreenOrientation) {
-      if (this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.LANDSCAPE){
+      if (this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.LANDSCAPE_PRIMARY){
         this.paysage = true;
       }
   }
+
 
   ngOnInit() {
   }

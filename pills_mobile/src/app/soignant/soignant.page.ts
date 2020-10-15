@@ -23,7 +23,7 @@ export class SoignantPage{
 
   paysage = false;
   constructor(private callNumber: CallNumber, private screenOrientation: ScreenOrientation) {
-    if (this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.LANDSCAPE){
+    if (this.screenOrientation.type === this.screenOrientation.ORIENTATIONS.LANDSCAPE_PRIMARY){
       this.paysage = true;
     }
   }
