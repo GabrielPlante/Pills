@@ -3,13 +3,14 @@ import MenuPatient from "./menuPatient";
 import MenuSoignant from "./menuSoignant";
 import App from "./App";
 import ReactDOM from "react-dom";
+import Patient_view from "./components/patient_view";
 
 function redirectToPatient(){
     console.log("redirecting to Patient...")
     return (
         ReactDOM.render(
             <React.StrictMode>
-                <MenuPatient />
+                <Patient_view />
             </React.StrictMode>,
             document.getElementById('root')
         )

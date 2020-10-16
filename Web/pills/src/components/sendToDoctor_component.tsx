@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import Voice_Recorder from "./test";
 
-class SendToDoctor extends Component<{},any> {
+class SendToDoctor extends Component<any,any> {
 
 
     constructor(props) {
@@ -20,7 +20,7 @@ class SendToDoctor extends Component<{},any> {
     }
 
     send = () => {
-            console.log(this.state.value)
+            this.props.send(this.state.value)
     }
 
     handleChange(event) {
