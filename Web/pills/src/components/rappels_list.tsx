@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {ListGroup} from "react-bootstrap";
+import {Alert, Button, ListGroup} from "react-bootstrap";
 import Rappel from "./rappel_component";
 import {rappelsData} from "../utils/all_rappels"
 
@@ -24,24 +24,23 @@ class Rappels_list extends Component<any,any> {
         const i = this.props.data.indexOf(item)
         const tmp = this.props.data
         tmp.splice(i,1)
-        tmp.map((i) => {
-            console.log(i.jour + i.heure)
-        })
         this.props.setProps(tmp);
         this.setState({data :tmp})
-
     }
 
 
     render() {
+        const mystyle = {
+            textAlign: "center" as "center"
+        }
         return (
             <div>
-                <h1>Mes Rappels</h1>
+                <h1 style={mystyle}>Mes Rappels</h1>
                 <ListGroup>
                     {this.state.data.map((item) =>
                         <ListGroup.Item>
                             <Rappel item = {item}  close={this.close}> </Rappel>
-                            <br/>
+                            <br/><hr/>
                         </ListGroup.Item>
                     ) }
                 </ListGroup>

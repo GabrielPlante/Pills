@@ -4,13 +4,20 @@ import MenuSoignant from "./menuSoignant";
 import App from "./App";
 import ReactDOM from "react-dom";
 import Patient_view from "./components/patient_view";
+import Small_patient_view from "./components/small_patient_view";
 
 function redirectToPatient(){
     console.log("redirecting to Patient...")
     return (
         ReactDOM.render(
             <React.StrictMode>
-                <Patient_view />
+                {window.innerWidth > 400 &&
+                    <Patient_view />
+                }
+                {
+                    window.innerWidth<400 &&
+                        <Small_patient_view/>
+                }
             </React.StrictMode>,
             document.getElementById('root')
         )

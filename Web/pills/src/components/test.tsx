@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import MicIcon from '@material-ui/icons/Mic';
+import MicOffIcon from '@material-ui/icons/MicOff';
+import CancelIcon from "@material-ui/icons/Cancel";
+import Button from "@material-ui/core/Button";
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
 
@@ -19,15 +23,18 @@ function Voice_Recorder(props) {
 
     const handleListen = () => {
         if (isListening) {
-            mic.start()
+            mic.start()          ;
+            props.Voice_activate(true)
             mic.onend = () => {
                 console.log('continue..')
                 mic.start()
             }
         } else {
-            mic.stop()
+            mic.stop();
+            props.Voice_activate(false)
             mic.onend = () => {
                 console.log('Stopped Mic on Click')
+
             }
         }
         mic.onstart = () => {
@@ -59,19 +66,34 @@ function Voice_Recorder(props) {
 
     return (
         <>
-            <div className="container">
-                <div className="box">
-                    {isListening ? <span>🎙️</span> : <span>🛑🎙️</span>}
-                    <button onClick={clear} disabled={!note}>
+            <div style={styles.container}>
+                    {isListening ? <span style={styles.element}>🎙️</span> : <span style={styles.element}>🛑🎙️</span>}
+                {/*<button onClick={clear} disabled={!note}>
                         Clear
-                    </button>
-                    <button onClick={() => setIsListening(prevState => !prevState)}>
-                        Start/Stop
-                    </button>
-                </div>
+                    </button>*/}
+                    <Button onClick={() => setIsListening(prevState => !prevState)}
+                            style={styles.element}
+                            variant="contained"
+                            color={isListening? "secondary" :"primary"}
+                            size="large"
+
+                            startIcon={isListening? <MicIcon/>: <MicOffIcon />}
+                    >
+                    </Button>
             </div>
         </>
     )
 }
 
 export default Voice_Recorder
+
+const styles = {
+    container:{
+        marginRight:"0",
+        marginLeft:"36%",
+
+    },
+    element:{
+        marginLeft:"8px"
+    }
+}

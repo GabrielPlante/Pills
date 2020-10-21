@@ -8,11 +8,12 @@ class SendToDoctor extends Component<any,any> {
         super(props);
         this.state = {
             voice :false ,
-            value : ''
+            value : '',
+            placeholder: "Tapez votre texte ici ou activez la reconnaissance vocale"
         }
         this.handleChange = this.handleChange.bind(this);
-        this.VoiceChangeText = this.VoiceChangeText.bind(this)
-
+        this.VoiceChangeText = this.VoiceChangeText.bind(this);
+        this.Voice_activate  = this.Voice_activate.bind(this)
     }
 
     voice_recorder = () => {
@@ -31,21 +32,33 @@ class SendToDoctor extends Component<any,any> {
         this.setState({value: text})
     }
 
+    Voice_activate(event){
+
+        if(!event){
+            this.setState({placeholder:"Tapez votre texte ici ou activez la reconnaissance vocale"})
+        }else {
+            this.setState({placeholder:"Reconnaissance vocale activée"})
+
+        }
+    }
+
 
 
     render() {
         return (
-            <div>
-                <div>
-                    <textarea value={this.state.value} onChange={this.handleChange} />
-
+            <div >
+                <div style={styles.container}>
+                    <textarea style={styles.textarea} value={this.state.value} onChange={this.handleChange}
+                              placeholder={this.state.placeholder}/>
                 </div>
-                <div>
-                    <button onClick={this.voice_recorder}> Utiliser l'enregistrement vocal</button>
+                <div style={styles.container}>
+                    <Voice_Recorder onTextChange={this.VoiceChangeText} Voice_activate={this.Voice_activate}/>
+                    <button style={styles.element} onClick={this.send}> Envoyer</button>
+                    {/*<button onClick={this.voice_recorder}> Utiliser l'enregistrement vocal</button>
                     {this.state.voice &&
                     <Voice_Recorder  onTextChange={this.VoiceChangeText}/>
                     }
-                    <button onClick={this.send}> Envoyer</button>
+                    */}
                 </div>
 
             </div>
@@ -55,3 +68,20 @@ class SendToDoctor extends Component<any,any> {
 
 
 export default SendToDoctor;
+
+const styles = {
+    textarea: {
+        marginRight:"0px",
+        marginLeft:"13px",
+        width:"90%",
+        height: 50
+    },
+    container:{
+        flex: 1,
+        marginTop: 30,
+    },
+    element:{
+        marginTop: 20,
+        marginLeft: "42%"
+    }
+}
