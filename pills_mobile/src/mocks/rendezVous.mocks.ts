@@ -5,7 +5,7 @@ export const RENDEZVOUS_MOCKED: RendezVous[] = [
     {
         id: 0,
         nameOfPatient: 'Marc Dutertre',
-        dateOfRdv: new Date(2020, 9, 15, 15, 20),
+        dateOfRdv: new Date(2020, 9, 16, 8, 20),
         prises: [PRISES_MOCKED[0], PRISES_MOCKED[1], PRISES_MOCKED[2], PRISES_MOCKED[3]]
     },
     {

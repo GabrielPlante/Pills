@@ -33,7 +33,7 @@
           <br>
           <ion-label>Alerte envoyée le : {{alert.dateOfAlert | date: 'dd/MM HH:mm'}}</ion-label>
           <br>
-          <ion-button *ngIf="!alert.correction" (click)="getCall()">
+          <ion-button *ngIf="!alert.correction" (click)="getCall(alert.id)">
             <ion-icon name="call"></ion-icon>
             Contacter
           </ion-button>
@@ -50,7 +50,7 @@
       <br>
       <br>
       <ion-item *ngFor="let rdv of rendezVous ">
-        <ion-list>
+        <ion-list >
           <ion-label class="pretty-list">{{rdv.dateOfRdv | date:'dd/MM HH:mm'}} : {{ rdv.nameOfPatient }}</ion-label>
           <ion-item *ngIf="rdv.dateOfRdv.getDate() == currentDate.getDate() && rdv.dateOfRdv.getMonth() == currentDate.getMonth() && prescription==null">
             <ion-button routerLink="/prescription"> Préscrire un médicament </ion-button>

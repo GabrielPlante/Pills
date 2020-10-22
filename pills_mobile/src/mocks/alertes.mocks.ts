@@ -13,11 +13,21 @@ export const ALERTES_MOCKED: Alerte[] = [
         dateOfCorrection: new Date(2020, 10, 16, 12, 42)
     },
     {
-        id: 0,
+        id: 1,
+        nameOfPatient: ' Jacques Legros',
+        medicament: MEDICAMENTS_MOCKED[1].name,
+        dateOfPrise: new Date(2020, 10, 15, 15, 30),
+        dateOfAlert: new Date(2020, 10, 16, 9, 20),
+        alertMessage: ' J\'ai pris mon médicament mais j\'ai vomi ',
+        correction: false,
+        dateOfCorrection: new Date()
+    },
+    {
+        id: 2,
         nameOfPatient: ' Jean Philippe Smet ',
         medicament: MEDICAMENTS_MOCKED[1].name,
-        dateOfPrise: new Date(2020, 10, 16, 15, 30),
-        dateOfAlert: new Date(2020, 10, 17, 9, 20),
+        dateOfPrise: new Date(2020, 10, 15, 15, 30),
+        dateOfAlert: new Date(2020, 10, 16, 9, 20),
         alertMessage: ' Je suis parti en week end et j\'ai totalement oublié de prendre mon traitement d\'hier ! ',
         correction: false,
         dateOfCorrection: new Date()
