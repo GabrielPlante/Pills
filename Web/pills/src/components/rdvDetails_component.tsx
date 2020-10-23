@@ -1,21 +1,13 @@
 import React, {Component} from "react";
 import "./rdvDetails_style.css"
+import rdv from "../class/rdv";
 
-class rdv{
-    debut:String;
-    fin: String;
-    patient: String;
-    constructor(d,f,p){
-        this.debut=d;
-        this.fin=f;
-        this.patient =p;
-    }
-}
 
 function RenderRdv(props){
     return (
         <table>
             <tbody>
+            <tr > <td colSpan={4}> <text>{props.jour}</text></td></tr>
             <tr>
                 <td className="debut">
                     <text> {props.debut} - </text>
@@ -31,7 +23,6 @@ function RenderRdv(props){
                 <td className="annulerRdv" >
                     <button className="delButton"  onClick={()=> props.onClick()}> X</button>
                 </td>
-
             </tr>
 
             </tbody>
@@ -53,7 +44,7 @@ class RdvDetails extends Component<any, any>{
         let newArray = this.state.value.slice()
         this.setState(
             {
-                value: newArray.filter(item=>item.debut!=i.debut).slice()
+                value: newArray.filter(item=>item.debut!==i.debut).slice()
         })
     }
 
@@ -61,7 +52,7 @@ class RdvDetails extends Component<any, any>{
         return(
             this.state.value.map((item:rdv)=>
                 <div>
-                    <RenderRdv debut={item.debut} fin={item.fin} patient={item.patient} onClick={()=>this.cancelRdv(item)}>
+                    <RenderRdv jour={item.jour} debut={item.debut} fin={item.fin} patient={item.patient} onClick={()=>this.cancelRdv(item)}>
                     </RenderRdv>
                 </div>)
         );
