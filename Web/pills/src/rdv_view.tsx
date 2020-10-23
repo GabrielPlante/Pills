@@ -6,7 +6,7 @@ import React from "react";
 function Rdv_view (){
     const rdvs = [
         new rdv('Ajourd\'hui','14h00','17h05','Boris'),
-        new rdv('Ajourd\'hui','18h00','21h05','Jocelyne'),
+        new rdv('','18h00','21h05','Jocelyne'),
 
         new rdv('Demain','07h30','8h45','Rayan'),
         new rdv('26/10/2020','14h05','16h45','Stephanie')
