@@ -55,16 +55,17 @@ export const suiviData =
             Image: "",
             traitement: [
                 {
-                    nom:"Traitement toux",
-                    periode: "22/10/20-26/10/20",
+                    nom:"Allergies Yeux",
+                    periode: "12/07/20-15/07/20",
+
                     medicaments:[
                         {
-                            nom:"Broncatiol",
+                            nom:"Dacryoserum",
                             dose: "2/3"
                         },
                         {
-                            nom:"Humex",
-                            dose: "1/3"
+                            nom:"Lacrifluid ",
+                            dose: "4/4"
 
                         }
                     ]
@@ -79,22 +80,6 @@ export const suiviData =
                             dose: "5/5"
                         },
 
-                    ]
-                },
-                {
-                    nom:"Allergies Yeux",
-                    periode: "12/07/20-15/07/20",
-
-                    medicaments:[
-                        {
-                            nom:"Dacryoserum",
-                            dose: "2/3"
-                        },
-                        {
-                            nom:"Lacrifluid ",
-                            dose: "4/4"
-
-                        }
                     ]
                 },
             ],

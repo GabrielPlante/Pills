@@ -27,7 +27,7 @@ function renderTraitement(props){
     return(
         <Table>
             <thead>
-                <tr>{props.nom}: {props.periode}</tr>
+                <th>{props.nom}: {props.periode}</th>
             </thead>
             <tbody>
 
@@ -48,8 +48,12 @@ class Suivi_component extends Component<any, any>{
     }
     render(){
         return (
-            <Grid>
-                <div> {this.props.suivi.Image} </div>
+            <Grid
+                container
+                direction="row"
+                justify="space-around"
+                alignItems="center">
+                <div> Patient(e) {this.props.suivi.Nom} </div>
                 <Table>
                     <tbody>
                     <tr> {this.props.suivi.traitement.map((item)=>renderTraitement(item))}</tr>
