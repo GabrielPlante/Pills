@@ -36,7 +36,6 @@ function MenuSoignant() {
             <div className="App">
                 <ul>{listP}</ul>
                 <ul>{listPatients}</ul>
-                <ul>{detailsRdv}</ul>
             </div>
 
         </div>

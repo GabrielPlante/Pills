@@ -19,7 +19,7 @@ export const patientsData =
             Nom: "Richard",
             Image: "",
             Age: 16,
-            Adresse: "221 route de la gare montparnasse",
+            Adresse: "221 route J Chirak",
         },
 
         {
